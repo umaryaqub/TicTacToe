@@ -11,14 +11,22 @@ import UIKit
 class TicTacToeController: UICollectionViewController {
     
     let cellId = "cellId"
+    let footerId = "footerId"
+    let ticTacToeCells = 9
     var ticTacToe: TicTacToe!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(TicTacToeCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.backgroundColor = .red
+        // setup navigation title
+        navigationItem.title = "TicTacToe"
         
+        // setup collection view
+        collectionView.register(TicTacToeCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TicTacToeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
+        collectionView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        
+        // initialise game logic client
         ticTacToe = TicTacToe()
     }
 
