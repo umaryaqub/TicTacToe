@@ -15,6 +15,7 @@ extension TicTacToeController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TicTacToeCell
         cell.delegate = self
+        cell.crossNoughtButton.tag = indexPath.row
         return cell
     }
 }

@@ -23,8 +23,6 @@ extension TicTacToeController: UICollectionViewDelegateFlowLayout, TicTacToeDele
     }
     
     func didTapCrossNoughtButton(_ sender: UIButton) {
-        if activePlayer == 1 {
-            sender.setImage(#imageLiteral(resourceName: "Cross").withRenderingMode(.alwaysOriginal), for: .normal)
-        }
+        executeTicTacToeLogic(sender)
     }
 }

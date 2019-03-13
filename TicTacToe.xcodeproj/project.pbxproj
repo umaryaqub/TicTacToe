@@ -16,6 +16,8 @@
 		39F7DEC72239218900764F22 /* TicTacToeController+Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F7DEC62239218900764F22 /* TicTacToeController+Datasource.swift */; };
 		39F7DEC92239220100764F22 /* TicTacToeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F7DEC82239220100764F22 /* TicTacToeCell.swift */; };
 		39F7DECB2239401400764F22 /* TicTacToeCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F7DECA2239401400764F22 /* TicTacToeCellTests.swift */; };
+		39F7DECD2239428B00764F22 /* TicTacToeController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F7DECC2239428B00764F22 /* TicTacToeController+Handlers.swift */; };
+		39F7DECF22394D8800764F22 /* TicTacToe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F7DECE22394D8800764F22 /* TicTacToe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		39F7DEC62239218900764F22 /* TicTacToeController+Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicTacToeController+Datasource.swift"; sourceTree = "<group>"; };
 		39F7DEC82239220100764F22 /* TicTacToeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeCell.swift; sourceTree = "<group>"; };
 		39F7DECA2239401400764F22 /* TicTacToeCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeCellTests.swift; sourceTree = "<group>"; };
+		39F7DECC2239428B00764F22 /* TicTacToeController+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicTacToeController+Handlers.swift"; sourceTree = "<group>"; };
+		39F7DECE22394D8800764F22 /* TicTacToe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			children = (
 				39F7DEA422391ECF00764F22 /* AppDelegate.swift */,
 				39F7DEA622391ECF00764F22 /* TicTacToeController.swift */,
+				39F7DECC2239428B00764F22 /* TicTacToeController+Handlers.swift */,
+				39F7DECE22394D8800764F22 /* TicTacToe.swift */,
 				39F7DEC42239217F00764F22 /* TicTacToeController+Delegate.swift */,
 				39F7DEC62239218900764F22 /* TicTacToeController+Datasource.swift */,
 				39F7DEC82239220100764F22 /* TicTacToeCell.swift */,
@@ -209,8 +215,10 @@
 				39F7DEC92239220100764F22 /* TicTacToeCell.swift in Sources */,
 				39F7DEA722391ECF00764F22 /* TicTacToeController.swift in Sources */,
 				39F7DEC72239218900764F22 /* TicTacToeController+Datasource.swift in Sources */,
+				39F7DECD2239428B00764F22 /* TicTacToeController+Handlers.swift in Sources */,
 				39F7DEA522391ECF00764F22 /* AppDelegate.swift in Sources */,
 				39F7DEC52239217F00764F22 /* TicTacToeController+Delegate.swift in Sources */,
+				39F7DECF22394D8800764F22 /* TicTacToe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

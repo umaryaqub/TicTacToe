@@ -11,13 +11,15 @@ import UIKit
 class TicTacToeController: UICollectionViewController {
     
     let cellId = "cellId"
-    var activePlayer = 1
+    var ticTacToe: TicTacToe!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.register(TicTacToeCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = .red
+        
+        ticTacToe = TicTacToe()
     }
 
 
