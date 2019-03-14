@@ -12,6 +12,18 @@ extension TicTacToeController {
     
     func executeTicTacToeLogic(_ sender: UIButton) {
         ticTacToe.play(sender)
+        if ticTacToe.result != nil {
+            ticTacToeFooter?.playAgainButton.isHidden = false
+            ticTacToeFooter?.resultLabel.text = ticTacToe.result
+        }
     }
     
+    func resetTicTacBoard() {
+      ticTacToe.resetTicTacToeBoard()
+      // remove images from each cell button
+      let ticTacToeCells = collectionView.visibleCells as? [TicTacToeCell]
+      ticTacToeCells?.forEach({ (ticTacToeCell) in
+         ticTacToeCell.crossNoughtButton.setImage(nil, for: .normal)
+      })
+    }
 }

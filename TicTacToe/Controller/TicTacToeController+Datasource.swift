@@ -22,6 +22,8 @@ extension TicTacToeController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId, for: indexPath) as! TicTacToeFooter
+        footer.delegate = self
+        ticTacToeFooter = footer
         return footer
     }
     

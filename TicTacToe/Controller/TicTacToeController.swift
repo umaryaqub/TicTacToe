@@ -14,6 +14,7 @@ class TicTacToeController: UICollectionViewController {
     let footerId = "footerId"
     let ticTacToeCells = 9
     var ticTacToe: TicTacToe!
+    var ticTacToeFooter: TicTacToeFooter?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -84,4 +84,35 @@ class TicTacToeTests: XCTestCase {
         sut.play(button)
         XCTAssertEqual(sut.result, "It's a Draw!")
     }
+    
+    func testGateStateIsResettedCorrectlyUponUserPlayingAgain() {
+        sut.gameState = [0, 2, 1, 1, 2, 2, 2, 1, 1]
+        sut.resetTicTacToeBoard()
+        let gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        XCTAssertEqual(sut.gameState, gameState)
+    }
+    
+    func testGameActiveStateIsSetToTrueUponUserPayingAgain() {
+        sut.isGameActive = false
+        sut.resetTicTacToeBoard()
+        let isGameActive = true
+        XCTAssertEqual(sut.isGameActive, isGameActive)
+    }
+    
+    func testActivePlayerIsSetTo1UponUserPayingAgain() {
+        sut.activePlayer = 2
+        sut.resetTicTacToeBoard()
+        let activePlayer = 1
+        XCTAssertEqual(sut.activePlayer, activePlayer)
+    }
+    
+    func testResultIsSetToNilUponUserPayingAgain() {
+        sut.result = "Testing"
+        sut.resetTicTacToeBoard()
+        var result: String!
+        result = nil
+        XCTAssertEqual(sut.result, result)
+    }
+    
 }
+

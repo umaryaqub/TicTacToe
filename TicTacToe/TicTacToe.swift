@@ -79,4 +79,12 @@ class TicTacToe {
             result = "It's a Draw!"
         }
     }
+    
+    func resetTicTacToeBoard() {
+        // reset variables to their starting values
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        isGameActive = true
+        activePlayer = 1
+        result = nil
+    }
 }

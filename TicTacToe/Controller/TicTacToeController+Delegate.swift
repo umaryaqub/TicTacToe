@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension TicTacToeController: UICollectionViewDelegateFlowLayout, TicTacToeDelegate {
+extension TicTacToeController: UICollectionViewDelegateFlowLayout, TicTacToeDelegate, TicTacToeFooterDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (view.frame.width - 2) / 3
         return CGSize(width: width, height: width)
@@ -24,5 +24,9 @@ extension TicTacToeController: UICollectionViewDelegateFlowLayout, TicTacToeDele
     
     func didTapCrossNoughtButton(_ sender: UIButton) {
         executeTicTacToeLogic(sender)
+    }
+    
+    func didTapPlayAgain() {
+        resetTicTacBoard()
     }
 }
