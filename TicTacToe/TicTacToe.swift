@@ -15,17 +15,23 @@ class TicTacToe {
     let winningCombinations = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [1, 4, 7], [2, 4, 6], [2, 5, 8], [3, 4, 5], [6, 7, 8]]
     var isGameActive = true
     var result: String!
+    let playerOne = 1
+    let playerTwo = 2
+    let emptyState = 0
+    let winningCrossMessage = "Cross has won!"
+    let winningNoughtMessage = "Nought has won!"
+    let drawMessage = "It's a Draw!"
     
     func play(_ sender: UIButton) {
         // only play if the game state doesn't have an active player value
         // and gave is active
         // and result hasn't been reached
-        if gameState[sender.tag] == 0 && isGameActive == true && result == nil {
+        if gameState[sender.tag] == emptyState && isGameActive == true && result == nil {
             // update the game state from 0 to the active player
             gameState[sender.tag] = activePlayer
             // if player 1 played then update to a cross
             // else to a nought
-            if activePlayer == 1 {
+            if activePlayer == playerOne {
                 setupPlayer1State(sender)
             } else {
                 setupPlayer2State(sender)
@@ -39,25 +45,25 @@ class TicTacToe {
     private func setupPlayer1State(_ sender: UIButton) {
         sender.setImage(#imageLiteral(resourceName: "Cross").withRenderingMode(.alwaysOriginal), for: .normal)
         // change game piece
-        activePlayer = 2
+        activePlayer = playerTwo
     }
     
     private func setupPlayer2State(_ sender: UIButton) {
         sender.setImage(#imageLiteral(resourceName: "Nought").withRenderingMode(.alwaysOriginal), for: .normal)
         // change game piece
-        activePlayer = 1
+        activePlayer = playerOne
     }
     
     private func checkIfWinningCombinationsAchieved() {
         winningCombinations.forEach { (combination) in
-            if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
+            if gameState[combination[0]] != emptyState && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
                 // stop the game
                 isGameActive = false
                 // check the winner
-                if gameState[combination[0]] == 1 {
-                    result = "Cross has won!"
+                if gameState[combination[0]] == playerOne {
+                    result = winningCrossMessage
                 } else {
-                    result = "Nought has won!"
+                    result = winningNoughtMessage
                 }
             }
         }
@@ -69,14 +75,14 @@ class TicTacToe {
         // and finding any states that are yet to be played and if the game doesn't already have a result yet
         isGameActive = false
         for state in gameState {
-            if state == 0 && result == nil {
+            if state == emptyState && result == nil {
                 isGameActive = true
                 break
             }
         }
         // if none are found that it's a draw
         if isGameActive != true && result == nil {
-            result = "It's a Draw!"
+            result = drawMessage
         }
     }
     
@@ -84,7 +90,7 @@ class TicTacToe {
         // reset variables to their starting values
         gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         isGameActive = true
-        activePlayer = 1
+        activePlayer = playerOne
         result = nil
     }
 }

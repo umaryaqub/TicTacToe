@@ -33,6 +33,10 @@ class TicTacToeFooterTests: XCTestCase, TicTacToeFooterDelegate {
         XCTAssert(didFireTicTacToeFooterDelegate)
     }
     
+    func testInitWithCoder() {
+        sut = TicTacToeFooter(coder: NSCoder())
+        XCTAssertNil(sut)
+    }
     
     func didTapPlayAgain() {
         didFireTicTacToeFooterDelegate = true

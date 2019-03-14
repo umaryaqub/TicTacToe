@@ -43,6 +43,11 @@ class TicTacToeCellTests: XCTestCase, TicTacToeDelegate {
         XCTAssertEqual(text!, title)
     }
     
+    func testInitWithCoder() {
+        sut = TicTacToeCell(coder: NSCoder())
+        XCTAssertNil(sut)
+    }
+    
     
     func didTapCrossNoughtButton(_ sender: UIButton) {
         didFireTicTacToeCellDelegate = true
