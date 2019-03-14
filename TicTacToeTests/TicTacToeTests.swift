@@ -50,31 +50,38 @@ class TicTacToeTests: XCTestCase {
     }
     
     func testGameStaysActiveIfThereAreTurnsStillRemaining() {
-        // game state is at two each with turns still remaining
         sut.gameState = [0, 0, 0, 0, 0, 2, 1, 2, 1]
         sut.play(button)
         XCTAssert(sut.isGameActive)
     }
     
     func testGameBecomesInactiveIfWinningCombinationIsReached() {
-        // mnaually giving player1 3 win states
         sut.gameState = [0, 0, 0, 0, 0, 0, 1, 1, 1]
         sut.play(button)
         XCTAssertFalse(sut.isGameActive)
     }
-    // game should also become inactive if there is a draw
+    
+    func testGameBecomesInactiveIfThereIsADraw() {
+        sut.gameState = [0, 2, 1, 1, 2, 2, 2, 1, 1]
+        sut.play(button)
+        XCTAssertFalse(sut.isGameActive)
+    }
     
     func testPlayer1IsDeclaredAWinnerIfItAchievesWinningCombination() {
-        // mnaually giving player1 3 a win
         sut.gameState = [0, 2, 0, 0, 2, 0, 1, 1, 1]
         sut.play(button)
-        XCTAssertEqual(sut.result, "Player 1 has won")
+        XCTAssertEqual(sut.result, "Cross has won!")
     }
     
     func testPlayer2IsDeclaredAWinnerIfItAchievesWinningCombination() {
-        // mnaually giving player1 3 a win
         sut.gameState = [0, 1, 0, 0, 1, 0, 2, 2, 2]
         sut.play(button)
-        XCTAssertEqual(sut.result, "Player 2 has won")
+        XCTAssertEqual(sut.result, "Nought has won!")
+    }
+    
+    func testResultIsADrawIfNoPlayerAchievesWinningCombination() {
+        sut.gameState = [0, 2, 1, 1, 2, 2, 2, 1, 1]
+        sut.play(button)
+        XCTAssertEqual(sut.result, "It's a Draw!")
     }
 }

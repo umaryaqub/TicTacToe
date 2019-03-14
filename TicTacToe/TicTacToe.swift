@@ -17,7 +17,10 @@ class TicTacToe {
     var result: String!
     
     func play(_ sender: UIButton) {
-        if gameState[sender.tag] == 0 && isGameActive == true {
+        // only play if the game state doesn't have an active player value
+        // and gave is active
+        // and result hasn't been reached
+        if gameState[sender.tag] == 0 && isGameActive == true && result == nil {
             // update the game state from 0 to the active player
             gameState[sender.tag] = activePlayer
             // if player 1 played then update to a cross
@@ -27,8 +30,9 @@ class TicTacToe {
             } else {
                 setupPlayer2State(sender)
             }
-            // with each play, try and work out a winner
+            // with each play, try and work out a winner/draw
             checkIfWinningCombinationsAchieved()
+            checkIfGameIsADraw()
         }
     }
     
@@ -51,15 +55,28 @@ class TicTacToe {
                 isGameActive = false
                 // check the winner
                 if gameState[combination[0]] == 1 {
-                    // player 1 (cross) has won
-                    print("player 1")
-                    result = "Player 1 has won"
+                    result = "Cross has won!"
                 } else {
-                    // player 2 (nought) has won
-                    print("player 2")
-                    result = "Player 2 has won"
+                    result = "Nought has won!"
                 }
             }
+        }
+    }
+    
+    private func checkIfGameIsADraw() {
+        // set the game active to false
+        // so we are able to turn it to true after iterating througn the states
+        // and finding any states that are yet to be played and if the game doesn't already have a result yet
+        isGameActive = false
+        for state in gameState {
+            if state == 0 && result == nil {
+                isGameActive = true
+                break
+            }
+        }
+        // if none are found that it's a draw
+        if isGameActive != true && result == nil {
+            result = "It's a Draw!"
         }
     }
 }
